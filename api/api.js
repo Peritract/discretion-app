@@ -8,7 +8,7 @@ const userRouter = require('./routers/user')
 
 const api = express();
 
-api.use(cors());
+api.use(cors({origin: true, credentials: true}));
 api.use(express.json());
 api.use(cookieParser());
 api.use(logRoutes);

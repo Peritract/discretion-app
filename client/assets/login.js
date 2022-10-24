@@ -21,6 +21,8 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
     const response = await fetch("http://localhost:4000/users/login", options);
     const data = await response.json();
 
+    console.log("login page document.cookie: " + (document.cookie || 'blank'));
+
     if (response.status === 200) {
         alert(`You have logged in!`)
         window.location.assign('./board.html');

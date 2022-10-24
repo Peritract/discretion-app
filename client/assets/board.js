@@ -1,3 +1,5 @@
+console.log("board page document.cookie: " + (document.cookie || 'blank')) // document.cookie currently not working
+
 function createPostElement (data) {
     const post = document.createElement("div");
     post.className = "post";
@@ -47,7 +49,7 @@ document.getElementById("post-form").addEventListener("submit", async (e) => {
 })
 
 async function loadPosts () {
-    const response = await fetch("http://localhost:4000/posts"); // TODO Make port dynamic
+    const response = await fetch("http://localhost:4000/posts", {credentials: 'include'}); // FIX: [credentials: 'include'] sends any cookies to the fetch url
     const posts = await response.json();
     console.log(posts);
     

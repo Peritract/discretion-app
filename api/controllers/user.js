@@ -40,7 +40,7 @@ async function login (req, res) {
             throw new Error("Incorrect credentials.");
         } else {
             const token = await Token.create(user["id"]);
-            res.cookie("discretionUser", token.token, { maxAge: 3600000 });
+            res.cookie("discretionUser", token.token, { maxAge: 3600000 }); // add following options to res.cookie to fix sameSite warning => sameSite: 'None', secure: true
 
             res.status(200).json({ authenticated: true });
         }

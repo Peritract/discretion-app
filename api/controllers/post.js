@@ -2,6 +2,7 @@ const Post = require('../models/post');
 
 async function index (req, res) {
     try {
+        console.log("discretionUser cookie: " + (req.cookies.discretionUser || "doesn't exist."))
         const posts = await Post.getAll();
         res.json(posts);
     } catch (err) {
