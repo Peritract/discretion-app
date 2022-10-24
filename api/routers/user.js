@@ -7,4 +7,4 @@ const userRouter = Router();
 userRouter.post("/register", userController.register);
 userRouter.get("/:id", userController.show);
 
-module.exports = { userRouter }
+module.exports = userRouter;
