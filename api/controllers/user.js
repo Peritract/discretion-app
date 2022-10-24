@@ -40,8 +40,9 @@ async function login (req, res) {
             throw new Error("Incorrect credentials.");
         } else {
             const token = await Token.create(user["id"]);
+            res.cookie("discretionUser", token.token, { maxAge: 3600000 });
 
-            res.status(200).json({authenticated: true, token});
+            res.status(200).json({ authenticated: true });
         }
 
     } catch (err) {
