@@ -50,6 +50,14 @@ async function login (req, res) {
     }
 }
 
+async function logout (req, res) {
+    try {
+        
+    } catch (err) {
+        res.status(400).json({"error": err.message})
+    }
+}
+
 module.exports = {
-    register, show, login
+    register, show, login, logout
 }
