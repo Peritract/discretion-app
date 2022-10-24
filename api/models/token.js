@@ -18,8 +18,13 @@ class Token {
         return newToken;
     }
 
-    static getOneById(id) {
-        
+    static async getOneById(id) {
+        const response = await db.query("SELECT * FROM token WHERE token_id = $1", [id]);
+        if (response.rows.length != 1) {
+            throw new Error("Unable to locate token.");
+        } else {
+            return new Token(response.rows[0]);
+        }
     }
 
     static getOneByToken(token) {
