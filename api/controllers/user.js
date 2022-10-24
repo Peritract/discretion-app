@@ -52,7 +52,8 @@ async function login (req, res) {
 
 async function logout (req, res) {
     try {
-        
+        res.clearCookie("discretionUser");
+        res.status(204).end();
     } catch (err) {
         res.status(400).json({"error": err.message})
     }
