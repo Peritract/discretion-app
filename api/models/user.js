@@ -17,14 +17,14 @@ class User {
         return new User(response.rows[0]);
     }
 
-    // static async create(data) {
-    //     const {title, content, sender_id, recipient_id} = data;
-    //     let response = await db.query("INSERT INTO post (title, content, sender_id, recipient_id) VALUES ($1, $2, $3, $4) RETURNING post_id;",
-    //         [title, content, sender_id, recipient_id]);
-    //     const newId = response.rows[0].post_id;
-    //     const newPost = await Post.getOneById(newId);
-    //     return newPost;
-    // }
+    static async create(data) {
+        const {username, password, isAdmin} = data;
+        let response = await db.query("INSERT INTO user_account (username, user_password, is_admin) VALUES ($1, $2, $3) RETURNING user_id;",
+            [username, password, isAdmin]);
+        const newId = response.rows[0].user_id;
+        const newUser = await User.getOneById(newId);
+        return newUser;
+    }
 
     // async destroy() {
     //     let response = await db.query("DELETE FROM post WHERE post_id = $1 RETURNING *;", [this.id]);
