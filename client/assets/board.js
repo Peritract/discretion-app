@@ -18,7 +18,7 @@ function createPostElement (data) {
 }
 
 async function loadPosts () {
-    const response = await fetch("http://localhost:3000/posts");
+    const response = await fetch("http://localhost:4000/posts"); // TODO Make port dynamic
     const posts = await response.json();
     console.log(posts);
     
