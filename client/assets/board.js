@@ -18,7 +18,7 @@ function createPostElement (data) {
 }
 
 async function loadPosts () {
-    const response = await fetch("http://localhost:3000/posts");
+    const response = await fetch("http://localhost:3000/posts", {credentials: 'include'}); // credentials is set to 'include' mode to allow the client to send and recieve cookies
     const posts = await response.json();
 
     if (response.status = 200) {

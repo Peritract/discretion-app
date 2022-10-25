@@ -5,6 +5,7 @@ document.getElementById("login-form").addEventListener('submit', async (e) => {
 
     const options = {
         method: "POST",
+        credentials: 'include', // credentials is set to 'include' mode to allow the client to send and recieve cookies
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
