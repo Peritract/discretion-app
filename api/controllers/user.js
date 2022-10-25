@@ -32,7 +32,7 @@ async function login(req, res) {
         const authenticated = await bcrypt.compare(data["password"], user["password"]);
         if (authenticated) {
             const token = await Token.create(user.id);
-            res.cookie("discretionUser", token.token, { maxAge: 3600000 });
+            res.cookie("discretionUser", token.token, { maxAge: 3600000, sameSite: 'None', secure: true });
             res.send({ user, authenticated: true });
         } else {
             throw new Error("Unable to authenticate user.");

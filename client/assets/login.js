@@ -20,6 +20,7 @@ document.getElementById("login-form").addEventListener('submit', async (e) => {
     const data = await response.json();
 
     if (response.status == 200) {
+        alert(`User ${form.get("username")} logged in`);
         window.location.assign("./board.html");
     } else {
         alert(data["error"]);
