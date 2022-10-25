@@ -8,7 +8,7 @@ async function authenticator (req, res, next) {
         if (!userCookie) {
             throw new Error("User not authenticated.");
         }
-        console.log(userCookie);
+        console.log("authenticator cookie console log: " + userCookie);
         
         const validToken = await Token.getOneByToken(userCookie);
 

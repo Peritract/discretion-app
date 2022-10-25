@@ -2,6 +2,7 @@ const Post = require('../models/post');
 
 async function index (req, res) {
     try {
+        console.log("discretionUser cookie: " + (req.cookies.discretionUser || "doesn't exist.")) // console log to see cookie being sent in the request
         const posts = await Post.getAll();
         res.json(posts);
     } catch (err) {
