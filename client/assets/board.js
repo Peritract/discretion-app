@@ -30,9 +30,7 @@ document.getElementById("post-form").addEventListener("submit", async (e) => {
         },
         body: JSON.stringify({
             title: form.get("title"),
-            content: form.get("content"),
-            sender_id: form.get("sender_id"),
-            recipient_id: form.get("recipient_id")
+            content: form.get("content")
         })
     }
 
