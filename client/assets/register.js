@@ -15,5 +15,12 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
         })
     }
 
-    console.log(options);
+    const response = await fetch("http://localhost:3000/users/register", options);
+    const data = await response.json();
+
+    if (response.status == 201) {
+        window.location.assign("login.html");
+    } else {
+        alert(data.error);
+    }
 })
