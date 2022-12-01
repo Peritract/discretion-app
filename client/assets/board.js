@@ -10,10 +10,6 @@ function createPostElement (data) {
     content.textContent = data["content"];
     post.appendChild(content);
 
-    const sender = document.createElement("em");
-    sender.textContent = data["sender_name"];
-    post.appendChild(sender);
-
     return post;
 }
 
